@@ -1,5 +1,4 @@
 require('dotenv').config();
-console.log('Path:' + process.env.PATH);
 const { defineConfig } = require('cypress');
 const emailService = require('./cypress/support/emailService');
 

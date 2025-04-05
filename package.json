@@ -1,7 +1,9 @@
 {
   "name": "cypress_project",
   "version": "1.0.0",
-  "scripts": {},
+  "scripts": {
+    "checkStatus": "npx cypress run"
+  },
   "devDependencies": {
     "cypress": "^14.2.1"
   },
