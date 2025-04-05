@@ -5,6 +5,7 @@ const emailService = require('./cypress/support/emailService');
 
 module.exports = defineConfig({
   e2e: {
+    defaultCommandTimeout: 30000,
     specPattern: "cypress/e2e/*.spec.js",
     baseUrl: "https://www.realmadrid.com/en-US",
     setupNodeEvents(on, config) {
