@@ -1,0 +1,12 @@
+{
+  "name": "cypress_project",
+  "version": "1.0.0",
+  "scripts": {},
+  "devDependencies": {
+    "cypress": "^14.2.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "nodemailer": "^6.10.0"
+  }
+}
