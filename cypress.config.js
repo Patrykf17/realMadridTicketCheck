@@ -1,9 +1,10 @@
-require('dotenv').config();
-const { defineConfig } = require('cypress');
-const emailService = require('./cypress/support/emailService');
+import dotenv from 'dotenv';
+import { defineConfig } from 'cypress';
+import { send } from './cypress/support/emailService.js';
 
+dotenv.config();
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     defaultCommandTimeout: 30000,
     specPattern: "cypress/e2e/*.spec.js",
@@ -12,7 +13,7 @@ module.exports = defineConfig({
       on('task', {
         async sendEmail({ dateConfirmed, ticketsAvailable }) {
           try {
-            await emailService.send(dateConfirmed, ticketsAvailable);
+            await send({ dateConfirmed, ticketsAvailable });
             return { success: true };
           } catch (error) {
             console.error('Email error:', error);

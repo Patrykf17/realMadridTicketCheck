@@ -1,4 +1,3 @@
-
 class realMadridPage {
 
     dateConfirmed;
@@ -48,13 +47,7 @@ class realMadridPage {
                 .should('be.visible')
                 .invoke('text')
                 .then((text) => {
-                    if (text.includes('(date and time to be confirmed)')) {
-                        this.dateConfirmed = false;
-                        cy.log('Date is not confirmed');
-                    } else {
-                        this.dateConfirmed = true;
-                        cy.log('Date is confirmed');
-                    }
+                    this.dateConfirmed = !text.includes('(date and time to be confirmed)');
                 });
         });
         return cy.wrap(this.dateConfirmed);
@@ -66,13 +59,7 @@ class realMadridPage {
                 .should('be.visible')
                 .invoke('text')
                 .then((text) => {
-                    if (text.includes('Tickets for general public available soon')) {
-                        this.ticketsAvailable = true;
-                        cy.log('Tickets are available');
-                    } else {
-                        this.ticketsAvailable = false;
-                        cy.log('Tickets are not available');
-                    }
+                    this.ticketsAvailable = !text.includes('Tickets for general public available soon');
                 });
         });
         return cy.wrap(this.ticketsAvailable);
